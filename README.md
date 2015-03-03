@@ -135,6 +135,19 @@ Here's an HTML example of a `series` graph:
   data-plot-key="send-msg-rate"
   data-series-key="minMsgSize"></div>
 ```
+spec file that can be used to gather data for the above result:
+```javascript
+[
+ {'name':      'message-sizes-and-producers',
+  'type':      'varying',
+  'params':    [{'time-limit':     30,
+                 'consumer-count': 0}],
+  'variables': [{'name':   'min-msg-size',
+                 'values': [0, 1000, 10000, 100000]},
+                {'name':   'producer-count',
+                 'values': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}]}
+]
+```
 
 - `x-y`: we can use this one to compare for example how message size
   affects the message rate per second. This graph from the second
@@ -155,6 +168,16 @@ Here's how to represent in HTML a `x-y` graph:
   data-y-axis="rate (msg/s)"
   data-y-axis2="rate (bytes/s)"
   data-legend="ne"></div>
+```
+spec file that can be used to gather data for the above result:
+```javascript
+[
+ {'name':      'message-sizes-large',
+  'type':      'varying',
+  'params':    [{'time-limit': 30}],
+  'variables': [{'name':   'min-msg-size',
+                 'values': [5000, 10000, 50000, 100000, 500000, 1000000]}]}
+]
 ```
 
 - `r-l`: This type of graph can help us compare the sending rate of
