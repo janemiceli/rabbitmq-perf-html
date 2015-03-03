@@ -47,6 +47,11 @@ which we will use now to display a graph in our HTML page.
 
 ## Displaying benchmark results ##
 
+```javascript
+[{'name': 'consume', 'type': 'simple', 'params':
+[{'time-limit': 30, 'producer-count': 4, 'consumer-count': 2}]}]
+```
+
 Provided you have included our libraries (see bellow "Boilerplate
 HTML"), the following HTML snippet will display the graph for the
 benchmark that we just ran:
@@ -79,7 +84,14 @@ class, then we can get a graph like the one below:
   data-y-axis=""
   data-scenario="no-ack"></div>
 ```
-
+spec file that can be used to gather data for the above result:
+```javascript
+[
+ {'name':      'no-ack',
+  'type':      'simple',
+  'params':    [{'time-limit':     30}]}
+]
+```
 ![Small Chart Example](./images/small-chart.png)
 
 Finally, there's a type of graphs called `"summary"` that can show a summary of the whole benchmark. Here's the _HTML_ for displaying them:
@@ -160,6 +172,14 @@ Here how's to draw a `r-l` graph with HTML:
   data-x-axis="rate attempted (msg/s)"
   data-y-axis="rate (msg/s)"
   data-scenario="rate-vs-latency"></div>
+```
+spec file that can be used to gather data for the above result:
+```javascript
+[
+ {'name':      'rate-vs-latency',
+  'type':      'rate-vs-latency',
+  'params':    [{'time-limit': 30}]}
+]
 ```
 
 To see how all these can be placed together take a look inside the
@@ -331,10 +351,10 @@ The following parameters can be specified for a scenario:
 - predeclared: tells the benchmark tool if the exchange/queue name
   provided already exist in the broker. Defaults to `false`.
 - uri: the AMQP URI. See the [URI
-  Spec](https://www.rabbitmq.com/uri-spec.html). Defaults to
-  `"amqp://localhost"`. If you are testing rabbbitmq on another IP
-  `"amqp://user:pass@server"`. If you are testing over SSL
-  `"amqps://user:pass@server:5671"`.
+  Spec](https://www.rabbitmq.com/uri-spec.html). 
+  Defaults to `"amqp://localhost"`. 
+  If you are testing rabbbitmq on another IP `"amqp://user:pass@server"`. 
+  If you are testing over SSL `"amqps://user:pass@server:5671"`.
 
 ## Note for Chrome Users ##
 
