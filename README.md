@@ -328,21 +328,19 @@ As you can see `min-msg-size` will be converted to `minMsgSize`.
 The following parameters can be specified for a scenario:
 
 - exchange-type: exchange type to be used during the
-  benchmark. 
-  - Defaults to `'direct'`.
-  Options include: 
-  - `'direct'` - A direct exchange delivers messages to queues based on 
+  benchmark. Defaults to `'direct'`. Options include: 
+  - `direct` - A direct exchange delivers messages to queues based on 
   a message routing key, an attribute that every AMQP v0.9.1 message 
   contains.
-  - `'fanout'` - A fanout exchange routes messages to all of the queues 
+  - `fanout` - A fanout exchange routes messages to all of the queues 
   that are bound to it and the routing key is ignored.
-  - `'topic'` - Topic exchanges route messages to one or many queues 
+  - `topic` - Topic exchanges route messages to one or many queues 
   based on matching between a message routing key and the pattern that 
   was used to bind a queue to an exchange. The topic exchange type is 
   often used to implement various publish/subscribe pattern variations.
-  - `'headers'` 
-- exchange-name: exchange name to be used during the
-  benchmark. Defaults to whatever `exchangeType` was set to.
+  - `headers` 
+- exchange-name: exchange name to be used during the benchmark. Defaults 
+  to whatever `exchangeType` was set to.
 - queue-name: queue name to be used during the benchmark. Defaults to
   an empty name, letting RabbitMQ provide a random one.
 - routing-key: routing key to be used during the benchmark. Defaults to
@@ -384,8 +382,8 @@ The following parameters can be specified for a scenario:
 - flags: flags to pass to the Producer, like `"mandatory"`,
   or `"persistent"`. 
   - Defaults to an empty list.
-  - `"persistent"` - When set to true, RabbitMQ will persist message to disk.
-  - `"mandatory"` - This flag tells the server how to react if the message 
+  - `persistent` - When set to true, RabbitMQ will persist message to disk.
+  - `mandatory` - This flag tells the server how to react if the message 
   cannot be routed to a queue. If this flag is set to true, the server 
   will return an unroutable message to the producer with a `basic.return` 
   AMQP method. If this flag is set to false, the server silently drops the 
