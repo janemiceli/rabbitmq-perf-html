@@ -394,7 +394,15 @@ The following parameters can be specified for a scenario:
   - Defaults to `"amqp://localhost"`. 
   - If you are testing rabbbitmq on another IP `"amqp://user:pass@server"`. 
   - If you are testing over SSL `"amqps://user:pass@server:5671"`.
-
+  - example:
+  ```javascript
+  [
+  {'uri':'amqps://user:pass@rmqnode:5671',
+    'name':      'no-ack',
+    'type':      'simple',
+    'params':    [{'time-limit': 30}]}
+  }]
+  ```
 ## Note for Chrome Users ##
 
 Chrome users may need to view the page via a web server, not file://.
