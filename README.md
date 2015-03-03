@@ -373,11 +373,10 @@ The following parameters can be specified for a scenario:
   or `"persistent"`. Defaults to an empty list.
 - predeclared: tells the benchmark tool if the exchange/queue name
   provided already exist in the broker. Defaults to `false`.
-- uri: the AMQP URI. See the [URI
-  Spec](https://www.rabbitmq.com/uri-spec.html). 
-  Defaults to `"amqp://localhost"`. 
-  If you are testing rabbbitmq on another IP `"amqp://user:pass@server"`. 
-  If you are testing over SSL `"amqps://user:pass@server:5671"`.
+- uri: the AMQP URI. See the [URI Spec](https://www.rabbitmq.com/uri-spec.html). 
+  - Defaults to `"amqp://localhost"`. 
+  - If you are testing rabbbitmq on another IP `"amqp://user:pass@server"`. 
+  - If you are testing over SSL `"amqps://user:pass@server:5671"`.
 
 ## Note for Chrome Users ##
 
