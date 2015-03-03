@@ -47,6 +47,7 @@ which we will use now to display a graph in our HTML page.
 
 ## Displaying benchmark results ##
 
+JavaScript spec file that can be used to gather data for the below result:
 ```javascript
 [{'name': 'consume', 'type': 'simple', 'params':
 [{'time-limit': 30, 'producer-count': 4, 'consumer-count': 2}]}]
@@ -135,7 +136,7 @@ Here's an HTML example of a `series` graph:
   data-plot-key="send-msg-rate"
   data-series-key="minMsgSize"></div>
 ```
-spec file that can be used to gather data for the above result:
+JavaScript spec file that can be used to gather data for the above result:
 ```javascript
 [
  {'name':      'message-sizes-and-producers',
@@ -370,7 +371,8 @@ The following parameters can be specified for a scenario:
 - msg-count: single flag to set the previous two counts to the same
   value.
 - flags: flags to pass to the Producer, like `"mandatory"`,
-  or `"persistent"`. Defaults to an empty list.
+  or `"persistent"`. 
+  - Defaults to an empty list.
 - predeclared: tells the benchmark tool if the exchange/queue name
   provided already exist in the broker. Defaults to `false`.
 - uri: the AMQP URI. See the [URI Spec](https://www.rabbitmq.com/uri-spec.html). 
@@ -382,6 +384,6 @@ The following parameters can be specified for a scenario:
 
 Chrome users may need to view the page via a web server, not file://.
 
-$ python -m SimpleHTTPServer
+  `"python -m SimpleHTTPServer"`
 
 will do in a pinch.
