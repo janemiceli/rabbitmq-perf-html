@@ -296,19 +296,19 @@ The following parameters can be specified for a scenario:
   key per published message. Useful when testing exchanges like the
   consistent hashing one. Defaults to `false`.
 - producer-rate-limit: limit number of messages a producer will produce
-  per second. Defaults to `0.0f`
+  per second. Defaults to `0.0f`.
 - consumer-rate-limit: limit number of messages a consumer will consume
-  per second. Defaults to 0.0f
+  per second. Defaults to `0.0f`.
 - producer-count: how many producers to run for the benchmark. Defaults
-  to 1
+  to `1`.
 - consumer-count: how many consumers to run for the benchmark. Defaults
-  to 1
+  to `1`.
 - producer-tx-size: how many messages to send before committing the
-  transaction. Defaults to 0, i.e.: no transactions
+  transaction. Defaults to `0`, i.e.: no transactions
 - consumer-tx-size: how many messages to consume before committing the
-  transaction. Defaults to 0, i.e.: no transactions
+  transaction. Defaults to `0`, i.e.: no transactions
 - confirm: whether to wait for publisher confirms during the
-  benchmark. Defaults to -1. Any number >= 0 will make the benchmarks
+  benchmark. Defaults to `-1`. Any number >= 0 will make the benchmarks
   to use confirms.
 - auto-ack: whether the benchmarks should auto-ack messages. Defaults
   to `false`.
