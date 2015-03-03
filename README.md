@@ -284,7 +284,8 @@ As you can see `min-msg-size` will be converted to `minMsgSize`.
 The following parameters can be specified for a scenario:
 
 - exchange-type: exchange type to be used during the
-  benchmark. Defaults to `'direct'`
+  benchmark. Defaults to `'direct'`.
+  Options include: `'direct'`, `'fanout'`, `'topic'`, `'headers'`.
 - exchange-name: exchange name to be used during the
   benchmark. Defaults to whatever `exchangeType` was set to.
 - queue-name: queue name to be used during the benchmark. Defaults to
@@ -331,7 +332,9 @@ The following parameters can be specified for a scenario:
   provided already exist in the broker. Defaults to `false`.
 - uri: the AMQP URI. See the [URI
   Spec](https://www.rabbitmq.com/uri-spec.html). Defaults to
-  `"amqp://localhost"`.
+  `"amqp://localhost"`. If you are testing rabbbitmq on another IP
+  `"amqp://user:pass@server"`. If you are testing over SSL
+  `"amqps://user:pass@server:5671"`.
 
 ## Note for Chrome Users ##
 
