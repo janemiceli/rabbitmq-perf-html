@@ -328,7 +328,7 @@ As you can see `min-msg-size` will be converted to `minMsgSize`.
 The following parameters can be specified for a scenario:
 
 - exchange-type: exchange type to be used during the
-  benchmark. Defaults to `'direct'`. Options include: 
+  benchmark. Defaults to `direct`. Options include: 
   - `direct` - A direct exchange delivers messages to queues based on 
   a message routing key, an attribute that every AMQP v0.9.1 message 
   contains.
@@ -379,8 +379,8 @@ The following parameters can be specified for a scenario:
   consume. Defaults to `0`.
 - msg-count: single flag to set the previous two counts to the same
   value.
-- flags: flags to pass to the Producer, like `"mandatory"`,
-  or `"persistent"`. 
+- flags: flags to pass to the Producer, like `mandatory`,
+  or `persistent`. 
   - Defaults to an empty list.
   - `persistent` - When set to true, RabbitMQ will persist message to disk.
   - `mandatory` - This flag tells the server how to react if the message 
@@ -396,11 +396,11 @@ The following parameters can be specified for a scenario:
   - If you are testing over SSL `"amqps://user:pass@server:5671"`.
   - example:
   ```javascript
-  [
-  {'uri':'amqps://user:pass@rmqnode:5671',
+  [{
+    'uri':'amqps://user:pass@server:5671',
     'name':      'no-ack',
     'type':      'simple',
-    'params':    [{'time-limit': 30}]}
+    'params':    [{'time-limit': 30}]
   }]
   ```
 ## Note for Chrome Users ##
