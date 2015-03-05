@@ -2,6 +2,11 @@ body { font: 12px Verdana,sans-serif; color: #484848; padding: 8px 35px; }
 
 p, ul { font: 14px Verdana,sans-serif; }
 
+.large-chart {
+    width: 1200px;
+    height: 600px;
+}
+
 .chart {
     width: 600px;
     height: 300px;

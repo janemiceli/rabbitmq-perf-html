@@ -50,6 +50,12 @@ function plot0(div, results) {
     if (type == 'time') {
         var data = results[scenario];
         plot_time(div, data);
+    }else if (type == 'time-send-latency') {
+        var data = results[scenario];
+        time_send_latency(div, data);
+    } if (type == 'time-recv-latency') {
+        var data = results[scenario];
+        time_recv_latency(div, data);
     }
     else {
         var dimensions       = results[scenario]['dimensions'];
@@ -74,6 +80,40 @@ function plot_time(div, data) {
     var keys = show_latency
        ? ['send-msg-rate', 'recv-msg-rate', 'avg-latency']
         : ['send-msg-rate', 'recv-msg-rate'];
+    $.each(keys, function(i, plot_key) {
+        var d = [];
+        $.each(data['samples'], function(j, sample) {
+            d.push([sample['elapsed'] / 1000, sample[plot_key]]);
+        });
+        var yaxis = (plot_key.indexOf('latency') == -1 ? 1 : 2);
+        chart_data.push({label: plot_key, data: d, yaxis: yaxis});
+    });
+
+    plot_data(div, chart_data, {yaxes: axes_rate_and_latency});
+}
+function time_send_latency(div, data) {
+    var show_latency = div.attr('data-latency') == 'true';
+    var chart_data = [];
+    var keys = show_latency
+       ? ['send-msg-rate', 'avg-latency']
+        : ['send-msg-rate'];
+    $.each(keys, function(i, plot_key) {
+        var d = [];
+        $.each(data['samples'], function(j, sample) {
+            d.push([sample['elapsed'] / 1000, sample[plot_key]]);
+        });
+        var yaxis = (plot_key.indexOf('latency') == -1 ? 1 : 2);
+        chart_data.push({label: plot_key, data: d, yaxis: yaxis});
+    });
+
+    plot_data(div, chart_data, {yaxes: axes_rate_and_latency});
+}
+function time_recv_latency(div, data) {
+    var show_latency = div.attr('data-latency') == 'true';
+    var chart_data = [];
+    var keys = show_latency
+       ? ['recv-msg-rate', 'avg-latency']
+        : ['recv-msg-rate'];
     $.each(keys, function(i, plot_key) {
         var d = [];
         $.each(data['samples'], function(j, sample) {
@@ -209,7 +249,7 @@ function attr_or_default(div, key, def) {
 }
 
 var axes_rate_and_latency = [{min:       0},
-                             {min:       100,
+                             {min:       500,
                               transform: log_transform,
                               ticks:     log_ticks,
                               position:  "right"}];
